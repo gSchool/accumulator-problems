@@ -58,10 +58,9 @@ Example: if you pass it "abc" then it should return "aabbcc"
 function doubleLetters(str) {
   let singled = str.split('');
   let doubled = singled.map(i => {
-    return singled + i;
+    return i + i;
   });
-  doubled.join('');
-  return doubled;
+  return doubled.join('');
 }
 
 
@@ -81,6 +80,12 @@ Write function named doubleNumbers that will take an array of numbers and return
 Example: if you pass it [1,2,3] then it should return [2,4,6]
 */
 
+function doubleNumbers(arr) {
+  let dn = arr.map(i => {
+    return i * 2;
+  })
+  return dn;
+}
 
 
 
