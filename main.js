@@ -30,6 +30,13 @@ For example, the tests require that to complete this challenge, your function mu
 results on the index page in the browser.
 */
 
+function sum(arr) {
+  let result = arr.reduce((sum,value) => {
+    return sum + value;
+  }, 0);
+  return result;
+}
+
 
 
 
