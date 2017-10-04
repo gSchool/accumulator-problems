@@ -55,7 +55,14 @@ Write function named doubleLetters that will take a string and double every lett
 Example: if you pass it "abc" then it should return "aabbcc"
 */
 
-
+function doubleLetters(str) {
+  let singled = str.split('');
+  let doubled = singled.map(i => {
+    return singled + i;
+  });
+  doubled.join('');
+  return doubled;
+}
 
 
 
