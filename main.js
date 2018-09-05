@@ -465,7 +465,9 @@ If you pass 1,4 it should return {"1": "odd", "2": "even", "3": "odd", "4": "eve
 */
 
 function evenOdd(start, end) {
-  const range = Array.from({length: end - start}, (_, index) => start + index)
+  if (start === 0 && end === 0) return {}
+
+  const range = Array.from({length: (end - start) + 1}, (_, index) => start + index)
   return range.reduce((acc, num) => {
     acc[num] = num % 2 === 0 ? 'even' : 'odd'
     return acc
@@ -485,14 +487,14 @@ Example:
 If you pass 2,"d" it should return {"d": true, "dd": true}
 */
 
+function growingKeys(count, letter) {
+  const keys = Array.from({length: count}, (_, index) => Array(index+1).fill(letter).join(''))
 
-
-
-
-
-
-
-
+  return keys.reduce((acc, key) => {
+    acc[key] = true
+    return acc
+  }, {})
+}
 
 /*
 ----------------------------------------
@@ -507,12 +509,9 @@ If you pass [1,1], 1 it should return true
 If you pass [1,2], 1 it should return false
 */
 
-
-
-
-
-
-
+function every(array, value) {
+  return array.filter(item => item === value).length === array.length
+}
 
 /*
 ----------------------------------------
@@ -527,19 +526,16 @@ If you pass [1,2], 1 it should return true
 If you pass [3,2], 1 it should return false
 */
 
-
-
-
-
-
-
+function some(array, value) {
+  return array.filter(item => item === value).length >= 1
+}
 
 /*
 ----------------------------------------
 CHALLENGE
 ----------------------------------------
 
-Write a function named some that takes an array and returns a string with the elements joined by commas, with a trailing 'and'
+Write a function named toSentence that takes an array and returns a string with the elements joined by commas, with a trailing 'and'
 
 Example:
 
@@ -547,17 +543,9 @@ If you pass ["Sue", "Will"] it should return "Sue and Will"
 If you pass ["Sue", "Will", "Rachel"] it should return "Sue, Will and Rachel"
 */
 
+function toSentence(arr) {
 
-
-
-
-
-
-
-
-
-
-
+}
 
 /*
 ----------------------------------------
