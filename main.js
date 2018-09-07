@@ -543,8 +543,20 @@ If you pass ["Sue", "Will"] it should return "Sue and Will"
 If you pass ["Sue", "Will", "Rachel"] it should return "Sue, Will and Rachel"
 */
 
+// if (arr.length < 1) return ''
+// const beginning = arr.slice(0, arr.length - 1)
+// const last = arr[arr.length-1]
+// return beginning.join(', ') + ' and ' + last
 function toSentence(arr) {
-
+  return arr.reduce((accum, word, index) => {
+    if (index < arr.length -1) {
+      accum += word + ', '
+    } else {
+      accum += 'and ' + word
+      accum = accum.replace(', and', ' and')
+    }
+    return accum
+  }, '')
 }
 
 /*
@@ -560,12 +572,12 @@ If you pass ["Sue", "Will"] it should return "SW"
 If you pass ["Java", Script", "Object", "Notation"] it should return "JSON"
 */
 
-
-
-
-
-
-
+function acronym(arr) {
+  return arr.reduce((accum, word) => {
+    accum += word[0]
+    return accum
+  }, '')
+}
 
 /*
 ----------------------------------------
@@ -579,7 +591,13 @@ Example:
 If you pass [0,-3,2,5] it should return -3
 */
 
-
+function min(arr) {
+  if (arr.length < 1) return undefined
+  return arr.reduce((min, value) => {
+    if (value < min) min = value
+    return min
+  }, Infinity)
+}
 
 
 
