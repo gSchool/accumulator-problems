@@ -599,14 +599,6 @@ function min(arr) {
   }, Infinity)
 }
 
-
-
-
-
-
-
-
-
 /*
 ----------------------------------------
 CHALLENGE
@@ -620,12 +612,12 @@ If you pass [{id: 1, name: "Joe"}, {id: 2, name: "Sue"}] it should return {1: {i
 
 */
 
-
-
-
-
-
-
+function index(arr, key) {
+  return arr.reduce((obj, item) => {
+    obj[item[key]] = item
+    return obj
+  }, {})
+}
 
 /*
 ----------------------------------------
@@ -639,13 +631,13 @@ Example:
 If you pass {id: 1, name: "Joe"} it should return {1: "id", Joe: "name"}
 */
 
-
-
-
-
-
-
-
+function invert(obj) {
+  return Object.keys(obj)
+  .reduce((accum, key) => {
+    accum[obj[key]] = key
+    return accum
+  }, {})
+}
 /*
 ----------------------------------------
 CHALLENGE
@@ -661,12 +653,15 @@ Example:
 If you pass {"contract": "foo"}, "Fred" it should return {"contract-signed": "foo - Fred"}
 */
 
+function addSignature(name, obj) {
+  if (typeof name === 'object' || Object.keys(obj).length < 1) return {}
 
-
-
-
-
-
+  return Object.keys(obj)
+  .reduce((accum, key) => {
+    accum[key + '-signed'] = obj[key] + ' - ' + name
+    return accum
+  }, {})
+}
 
 /*
 ----------------------------------------
@@ -680,12 +675,13 @@ Example:
 If you pass {name: "Will", age: 24} it should return ["name - will", "age - 24"]
 */
 
-
-
-
-
-
-
+function pairs(obj) {
+  return Object.keys(obj)
+  .reduce((accum, key) => {
+    accum.push(key + ' - ' + obj[key])
+    return accum
+  }, [])
+}
 
 /*
 ----------------------------------------
@@ -699,12 +695,9 @@ Example:
 If you pass {a: 1, b: 2} it should return 3
 */
 
-
-
-
-
-
-
+function sumValues(obj) {
+  return sum(Object.values(obj))
+}
 
 /*
 ----------------------------------------
@@ -718,18 +711,17 @@ Example:
 If you pass {1999: 4036, 2000: 7654} it should return '2000'
 */
 
-
-
-
-
-
-
-
-
-
-
-
-
+function biggestProperty(obj) {
+  if (Object.keys(obj).length < 1) return undefined
+  return Object.keys(obj)
+    .reduce((matchKey, curKey) => {
+      if (matchKey === '') matchKey = curKey
+      if (obj[curKey] > obj[matchKey]) {
+        matchKey = curKey
+      }
+      return matchKey
+    }, '')
+}
 
 /*
 ----------------------------------------
@@ -743,14 +735,11 @@ Example:
 If you pass {1999: 4036, 2000: 7654} and 4036, it should return '1999'
 */
 
-
-
-
-
-
-
-
-
+function keyForValue(obj, value) {
+  if (Object.keys(obj).length < 1) return undefined
+  return Object.keys(obj)
+    .find(key => obj[key] === value)
+}
 
 /*
 ----------------------------------------
@@ -764,12 +753,9 @@ Example:
 If you pass {1999: 4036, 2000: 7654} and 4036, it should return true
 */
 
+function containsValue(obj, value) {
+  if (Object.keys(obj).length < 1) return false
+  return Object.keys(obj)
+    .find(key => obj[key] === value) != undefined
+}
 
-
-
-
-
-
-
-
-//
