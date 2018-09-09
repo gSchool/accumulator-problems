@@ -393,7 +393,7 @@ Write a function named threeOdds that takes 2 numbers and returns true if there 
 
 Example:
 
-If you pass 0,2 it should return false because the only number between 0 and 2 is 1
+If you pass 0,3 it should return false because the only number between 0 and 3 is 1
 If you pass 0,6 it should return true because between 0 and six (the numbers 1,2,3,4,5) there are three odds - 1, 3 and 5
 */
 
