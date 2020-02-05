@@ -30,6 +30,13 @@ For example, the tests require that to complete this challenge, your function mu
 results on the index page in the browser.
 */
 
+function sum(arr) {
+  let result = arr.reduce((sum,value) => {
+    return sum + value;
+  }, 0);
+  return result;
+}
+
 
 
 
@@ -48,7 +55,13 @@ Write function named doubleLetters that will take a string and double every lett
 Example: if you pass it "abc" then it should return "aabbcc"
 */
 
-
+function doubleLetters(str) {
+  let singled = str.split('');
+  let doubled = singled.map(i => {
+    return i + i;
+  });
+  return doubled.join('');
+}
 
 
 
@@ -67,6 +80,12 @@ Write function named doubleNumbers that will take an array of numbers and return
 Example: if you pass it [1,2,3] then it should return [2,4,6]
 */
 
+function doubleNumbers(arr) {
+  let dn = arr.map(i => {
+    return i * 2;
+  })
+  return dn;
+}
 
 
 
